@@ -1,0 +1,33 @@
+
+                                       dataset.csv                        new_dataset.csv
+                                    target      data                      target    data 
+prmitive
+  run_regression.py                 yes         yes                       No        yes
+
+
+with testing
+  run_regression_with testing                      
+                                    dataset_train      dataset_test         new_dataset.csv
+                                    target   data    target   data          target  data
+                                    yes      yes      yes     yes           No      yes
+     
+
+
+k-fold  k=4
+  run_regression_with k-fold testing                      
+              dataset_1            dataset_2          dataset_3        dataset_4         new_dataset.csv
+             target   data       target   data      target   data    target   data          target  data
+             yes      yes        yes      yes       yes      yes      yes     yes           No      yes
+     
+ test_1     
+    dataset_2 dataset_3 dataset_4  => dataset_train
+    dataset_1 => dataset_test
+ test_2     
+    dataset_1 dataset_3 dataset_4  => dataset_train
+    dataset_2 => dataset_test
+ test_3     
+    dataset_1 dataset_2 dataset_4  => dataset_train
+    dataset_3 => dataset_test
+ test_4     
+    dataset_1 dataset_2 dataset_3  => dataset_train
+    dataset_4 => dataset_test
