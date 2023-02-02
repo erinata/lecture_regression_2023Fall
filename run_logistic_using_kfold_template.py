@@ -5,9 +5,10 @@ import kfold_template
 
 dataset = pandas.read_csv("dataset.csv")
 
-target = dataset.iloc[:,1].values
+target = dataset.iloc[:,2].values
 data = dataset.iloc[:,3:9].values
 
 machine = linear_model.LogisticRegression()
 
-kfold_template.run_kfold(data, target, machine, 4, True, True)
+kfold_template.run_kfold(data, target, machine, 4, True, True, True)
+

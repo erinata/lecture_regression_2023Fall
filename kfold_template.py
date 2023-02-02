@@ -1,7 +1,7 @@
 from sklearn.model_selection import KFold
 from sklearn import metrics
 
-def run_kfold(data, target, machine, n, use_r2=True, use_accuracy=False):
+def run_kfold(data, target, machine, n, use_r2=True, use_accuracy=False, use_confusion=False):
   print("run kfold")
   kfold_object = KFold(n_splits=n)
   kfold_object.get_n_splits(data)
@@ -29,7 +29,11 @@ def run_kfold(data, target, machine, n, use_r2=True, use_accuracy=False):
     if (use_accuracy == True):
       accuracy= metrics.accuracy_score(target_test, prediction)
       print("Accuracy score: ", accuracy)
-      
+    if (use_confusion == True):
+      confusion = metrics.confusion_matrix(target_test, prediction)
+      print("Confusion matrix: \n", confusion) 
+    
+        
     print("\n\n")
     
   
