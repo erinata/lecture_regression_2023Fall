@@ -1,7 +1,7 @@
 from sklearn.model_selection import KFold
 from sklearn import metrics
 
-def run_kfold(data, target, machine, n):
+def run_kfold(data, target, machine, n, use_r2=True, use_accuracy=False):
   print("run kfold")
   kfold_object = KFold(n_splits=n)
   kfold_object.get_n_splits(data)
@@ -23,9 +23,15 @@ def run_kfold(data, target, machine, n):
     machine.fit(data_train, target_train)
     
     prediction = machine.predict(data_test)
-    r2 = metrics.r2_score(target_test, prediction)
-    print("R square score: ", r2) 
+    if (use_r2 == True):
+      r2 = metrics.r2_score(target_test, prediction)
+      print("R square score: ", r2) 
+    if (use_accuracy == True):
+      accuracy= metrics.accuracy_score(target_test, prediction)
+      print("Accuracy score: ", accuracy)
+      
     print("\n\n")
+    
   
 if __name__ == '__main__':
   run_kfold()

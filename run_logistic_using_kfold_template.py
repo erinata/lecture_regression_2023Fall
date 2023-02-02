@@ -10,4 +10,4 @@ data = dataset.iloc[:,3:9].values
 
 machine = linear_model.LogisticRegression()
 
-kfold_template.run_kfold(data, target, machine, 4)
+kfold_template.run_kfold(data, target, machine, 4, True, True)
