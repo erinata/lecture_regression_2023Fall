@@ -14,9 +14,11 @@ data = dataset.iloc[:,3:9].values
 # print(data)
 
 machine = linear_model.LinearRegression()
-
 kfold_template.run_kfold(data, target, machine, 4)
 
+
+machine = linear_model.LinearRegression()
+machine.fit(data, target)
 
 new_dataset = pandas.read_csv("new_dataset.csv")
 new_dataset = new_dataset.values
